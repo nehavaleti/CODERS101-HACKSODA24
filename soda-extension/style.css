@@ -1,0 +1,212 @@
+body {
+    background-color: #1a1a1a;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+.container {
+    background-color: rgba(0, 128, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px; /* Reduced padding */
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid #00ff00;
+    max-height: 80vh; /* Added max-height */
+    overflow-y: auto; /* Added scrolling if content exceeds max-height */
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+#extractButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#extractButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#extractButton:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.light-bulb {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0.05));
+    border-radius: 50%;
+    animation: pulse 2s infinite alternate, rotate 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.light-bulb::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(255, 255, 0, 0.8);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.animated-lock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.animated-lock::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.animated-lock video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Ensure other content is above the animated lock */
+.container, .safety-radar {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.background-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(0, 255, 0, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+#extractButton {
+    margin-top: 230px; /* Increase this value to move the button lower */
+}
